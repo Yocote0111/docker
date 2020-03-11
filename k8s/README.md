@@ -54,7 +54,58 @@ k8sは5つの層がある
   On-premise: OpenShift Container Platform  
   Custom: OpenShift Container Platform
 
-1. Dockerのインストール  
-    https://www.docker.com/products/docker-desktop
-2. 動作確認  
+## コマンド
+
+```
+kubectl config view     # show config
+kubectl version         # show version of server/client
+kubectl cluster-info    # show cluster info.
+
+kubectl get nodes       # list nodes
+kubectl get deploymonet # list deployments
+kubectl get pods        # list pods
+kubectl get events      # list events
+kubectl get services    # list services
+
+kubectl create deployment [name] --image [image]
+kubectl expose deployment [name] --type=LoadBalancer --port:8080
+```
+
+## Minikube  
+ https://kubernetes.io/ja/docs/tutorials/hello-minikube/  
+
+1. 環境要件  
+
+* Hyper-V が利用可能なOSの場合 (Windows Pro 等)  
+  - Intel VT-X/amd-v の有効化 (BIOS設定)   
+   - Windows プログラムから Hyper-V や　仮想化を有効化  
+
+* Hyber-Vが利用不可能なOSの場合 (Windows Home 等)
+  - Windows プログラムから Hyper-V や　仮想化を無効化  
+    (これをしていないとVMを立ち上げるときにこける)
+
+2. Minikube のインストール  
+* インストーラをダウンロード  
+  https://kubernetes.io/docs/tasks/tools/install-minikube/  
+* インストールを実行
+
+3. Minikube 起動
+```
+minikube version  # installation check
+minikube start    # boot VM and start k8s
+```
+
+4. コマンド  
 ``` 
+minikube help
+minikube version
+minikube start
+minikube status
+minikube dashboard
+minikube service [name]
+minikube addons list
+minikube addons enable [addon]
+minikube addons disable [addon]
+minikube stop
+minikube delete
+```
