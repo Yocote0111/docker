@@ -1,9 +1,6 @@
 # Kubernetes
 
 
-
-
-
 # 環境構築
 
 ##  学習環境 と 製品環境  
@@ -109,3 +106,25 @@ minikube addons disable [addon]
 minikube stop
 minikube delete
 ```
+
+## Resources
+Resource
+ - metadata:  name, kind, api ver., label
+ - spec
+ - status
+
+Resource Operations
+ - create
+ - update: replace, patch
+ - read: get, list, watch
+ - delete
+ - other: rollback, read/write scale, read/write status
+
+Resource Type
+- Workload: managing container
+  - Deployment: for stateless persistent apps (Web Server)
+  - ReplicaSet: for stateless persistent apps (Web Server)
+  - StatefulSet: for stateful persistent apps (database)
+  - Job: run-to-completion apps (batch job)
+    - Job
+    - CronJob

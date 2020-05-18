@@ -1,0 +1,20 @@
+version: '3'
+services:
+  fuseki:
+    image: stain/jena-fuseki:3.14.0
+    container_name: fuseki1
+    environment:
+      ADMIN_PASSWORD: fuseki
+      # JVM_ARGS: "-Xmx2g"
+      # DATABASE_HOST: localhost
+    volumes:
+      - fuseki_db:/fuseki
+    ports:
+      - 3030:3030
+volumes:
+  fuseki_db:
+    external: true
+
+# $> docker volume create --name fuseki_db
+# $> docker-compose up -d
+# user: admin, pw: fuseki

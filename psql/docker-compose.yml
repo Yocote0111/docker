@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:10-alpine
+    container_name: psql1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: postgres
+      # DATABASE_HOST: localhost
+    volumes:
+      - psql_db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+volumes:
+  psql_db:
+    external: true
+
+# https://qiita.com/dyoshikawa/items/c3c4269e02433551278b
+# https://qiita.com/74th/items/41393f506d223850f2c3
+# docker volume create --name=psql_db
